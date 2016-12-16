@@ -1,0 +1,60 @@
+<div class="page" id="account_videoNotice" data-pageTitle="视频认证注意事项">
+	<header class="header">
+		<a href="javascript:void(0)" class="icon_back"></a>
+    	<h3>视频认证注意事项</h3>
+    	<h3 style="display:none">视频见证驳回</h3>
+    </header>
+	<section class="main">
+		<div class="over_scroll">
+        <div class="step_box top_step">
+            <ul class="step_li_sub clearfix">
+            	<li class="on" ><span>1.实名验证</span><em></em></li>
+            	<li><span>2.开立账户</span><em></em></li>
+                <li><span>3.开户确认</span><em></em></li>
+            </ul>
+        </div>
+        <div class="error_notice" style="display:none">
+        	<h5>很抱歉，您尚未开通股东或基金账户！</h5>
+        	<p>请点击 视频见证 开通相关账户</p>
+        </div>
+        <div class="error_notice" style="display:none">
+        	<h5>很抱歉，您的视频见证未通过！</h5>
+        </div>
+        <div class="top_title02">
+        	<p>接下来将由我公司工作人员与您进行视频连线,<br />请做好以下准备：</p>
+        </div>
+        <div class="camera_notice">
+			<ul class="clearfix">
+            	<li><span></span><p>光线充足的位置</p></li>
+                <li><span></span><p>周边环境安静</p></li>
+                <li><span></span><p>请勿遮挡面部</p></li>
+                <li><span></span><p>视频认证时间<br>工作日9:00~20:00</p></li>
+        	</ul>
+        </div>
+         <div class="camera_notice" style="display:none">
+        	<p>温馨提示：尊敬的客户，您的提交的资料未通过审核，请您根据客服人员指示，选择返回重新提交资料！</p>
+        </div>
+        <!--div class="c_link none">
+        	<a href="javascript:void(0)">申请QQ视频见证></a>
+        </div-->
+        <div class="photo_again" style="display:none">
+    		<div class="go_order">
+        		<a href="javascript:void(0)">重新上传照片</a>
+        	</div>
+    	</div>
+    	<div class="info_again" style="display:none">
+    		<div class="go_order">
+        		<a href="javascript:void(0)">重新提交资料</a>
+        	</div>
+    	</div>
+    	
+        <div class="fix_bot mt60 ip4_mt0">
+			<div class="ct_btn">
+	        	<a href="javascript:void(0)">下一步</a>
+	        </div>
+	        <div class="ct_btn" style="display:none">
+        		<a href="javascript:void(0)">继续开户 ></a>
+            </div>
+	    </div>
+    </section>
+</div>

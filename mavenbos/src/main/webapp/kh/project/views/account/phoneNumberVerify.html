@@ -1,0 +1,40 @@
+<div class="page" id="account_phoneNumberVerify" data-pageTitle="身份验证-手机验证">
+	<header class="header">
+    	<a href="javascript:void(0)" class="icon_back"></a>
+    	<h3>验证手机</h3>
+    </header>
+	<section class="main">
+		<div class="top_title ">
+        	<p>请输入手机号<br />若开户未完成可用通过手机号继续开户</p>
+        </div>
+        <div class="mobile_form">
+        	<div class="input_text h44">
+            	 <span class="textLable">手机号码</span>
+                <input type="tel" class="t1 h24 phoneNum" maxlength="11" value="请输入手机号码">
+            </div>
+        </div>
+         <div class="cert_notice" style="display:none"></div>
+    </section>
+    <script>
+    	$(function(){
+    		if($(".phoneNum").val()!="请输入手机号码"){
+   				$(".phoneNum").css({color:"#E3E3E3"});
+   			}
+    		$(".phoneNum").on("click",function(){
+    			if($(this).val()=="请输入手机号码"){
+    				$(this).css({color:"#2F2F2F"}).val("");
+    			}
+    		});
+    		$(".phoneNum").on("blur",function(){
+    			if($(this).val()==""){ //如果是空则设置颜色为灰色
+    				$(this).val("请输入手机号码").css({color:"#E3E3E3"});
+    			}
+    		});
+    	})
+    </script>
+    <div class="fix_bot">
+		<div class="ct_btn">
+        	<a href="javascript:void(0)">下一步</a>
+        </div>
+    </div>
+</div>

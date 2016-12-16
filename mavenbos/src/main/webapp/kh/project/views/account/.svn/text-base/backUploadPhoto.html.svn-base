@@ -1,0 +1,48 @@
+<div class="page" id="account_backUploadPhoto" data-pageTitle="重传照片">
+	<header class="header">  	
+    	<h3>开户进度</h3>	
+    </header>
+	<section class="main">
+		<div class="over_scroll">
+        <div class="error_notice">
+        	<h5>开户审核不通过！</h5>
+			<p>您的开户申请审核不通过，请补充完善以下资料后再次提交。</p>
+        </div>
+        <div class="upload_main">
+			<h5>补充身份证影像</h5>
+            <dl class="upload_box positive" uploaded="false" style="display:none">
+            	<dd class="icon01">
+                    <h5>正 面</h5>
+                    <p>点击上传身份证</p>
+                </dd>
+            </dl>
+            <dl class="upload_box negative" uploaded="false" style="display:none">
+                <dd class="icon02">
+                    <h5>背 面</h5>
+                    <p>点击上传身份证</p>
+                </dd>
+            </dl>
+            <dl class="upload_box headpic" uploaded="false" style="display:none">
+            	<dd class="icon03">
+	                <h5>大头像</h5>
+	                <p>点击上传免冠头像</p>
+                </dd>
+            </dl>
+			<p class="ared">驳回原因：您上传的影像不清楚，无法辨认</p>
+        </div>
+        <div class="fix_bot">
+			<div class="ct_btn">
+	        	<a href="javascript:void(0)">确&nbsp;&nbsp;&nbsp;认</a>
+	        </div>
+	    </div>
+	    </div>
+    </section>
+
+    <div class="upload_btn" style="display:none">
+    	<h5>上传身份证正面</h5>
+		<ul>
+	    	<li media-id="null"><a href="javascript:void(0)">相册</a></li>
+	        <li media-id="null"><a href="javascript:void(0)">拍照</a></li>
+		</ul>
+	</div>
+</div>

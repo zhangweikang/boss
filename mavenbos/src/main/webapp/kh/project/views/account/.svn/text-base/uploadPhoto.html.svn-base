@@ -1,0 +1,50 @@
+<div class="page" id="account_uploadPhoto" data-pageTitle="身份验证-上传影像">
+	<header class="header">
+    	<a href="javascript:void(0)" class="icon_back"></a>
+    	<h3>上传影像</h3>
+    </header>
+	<section class="main">
+		<div class="over_scroll">
+	        <div class="step_box top_step">
+	            <ul class="step_li_sub clearfix">
+	            	<li class="on"><span>1.实名验证</span><em></em></li>
+	            	<li><span>2.开立账户</span><em></em></li>
+	                <li><span>3.开户确认</span><em></em></li>
+	            </ul>
+	        </div>
+	         <div class="top_title02">
+	        	<p>上传身份证影像，请确保您的二代身份证<br />处于有效期内</p>
+	        </div>
+	        <div class="upload_main">
+	            <dl class="upload_box positive" uploaded="false">
+	            	<dd class="icon01">
+	            	    <h5>正 面</h5>
+	                    <p>点击上传身份证</p>
+	                    
+	                </dd>
+	            </dl>
+	            <dl class="upload_box negative" uploaded="false">
+	                <dd class="icon02">
+	                    <h5>背 面</h5>
+	                    <p>点击上传身份证</p>
+	                </dd>
+	            </dl>
+	            <div class="rule_check mb10">
+	            	<span class="icon_check" id="icon_Check">已阅读并同意</span>
+	            </div>
+	        </div>
+            <div class="fix_bot">
+				<div class="ct_btn">
+		        	<a href="javascript:void(0)">下一步 ></a>
+		        </div>
+		    </div>
+	    </div>
+    </section>
+    <div class="upload_btn" style="display:none">
+    	<h5>上传身份证正面</h5>
+		<ul>
+	    	<li media-id="null"><a href="javascript:void(0)">相册</a></li>
+	        <li media-id="null"><a href="javascript:void(0)">拍照</a></li>
+		</ul>
+	</div>
+</div>

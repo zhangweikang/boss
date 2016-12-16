@@ -1,0 +1,38 @@
+<div class="page" id="account_orderQq" data-pageTitle="预约QQ视频认证">
+	<header class="header">
+    	<a href="javascript:void(0)" class="icon_back"></a>
+    	<h3>预约QQ视频认证</h3>
+    </header>
+	<section class="main">
+        <div class="step_box top_step">
+            <ul class="step_li clearfix">
+            	<li class="active"><span>实名验证</span><em></em></li>
+            	<li><span>开立账户</span><em></em></li>
+                <li><span>开户确认</span><em></em></li>
+            </ul>
+        </div>
+        <div class="top_title">
+        	<span>我们的客服将在规定的时间主动联系您完成视频认证</span>
+        </div>
+        <div class="user_form">
+        	<h5 class="title">选择预约时间段：</h5>
+            <div class="input_list">
+                <p><a href="javascript:void(0)" deal_time="9-12" class="icon_radio checked">早上9:00~12:00</a></p>
+            	<p><a href="javascript:void(0)" deal_time="12-14" class="icon_radio">中午12:00~2:00</a></p>
+                <p><a href="javascript:void(0)" deal_time="14-17" class="icon_radio">下午2:00~5:00</a></p>
+                <p><a href="javascript:void(0)" deal_time="17-19" class="icon_radio">下午5:00~7:00</a></p>
+                <p><a href="javascript:void(0)" deal_time="19-21" class="icon_radio">晚上7:00~9:00</a></p>
+            </div>
+            <div class="input_form circular mt10">
+            	<div class="input_text">
+                	<span>您的QQ号</span><input type="number" class="t1" maxlength="11">
+                </div>
+            </div>
+    	</div>
+    </section>
+    <div class="fix_bot">
+		<div class="ct_btn">
+        	<a href="javascript:void(0)">立即预约 ></a>
+        </div>
+    </div>
+</div>

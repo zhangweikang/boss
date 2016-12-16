@@ -1,0 +1,54 @@
+<div class="page" id="account_phoneToukerRegister" data-pageTitle="身份验证-手机验证">
+	<header class="header">
+    	<a href="javascript:void(0)" class="icon_back"></a>
+    	<h3>注册投客网</h3>
+    </header>
+	<section class="main">
+        <div class="top_title">
+        	<p class="sendPhoneTip">&nbsp;</p>
+        </div>
+        <div class="mobile_form">
+            <div class="input_text h44">
+            	<span class="textLable">验证码</span>
+                <input type="tel" class="t1 h24 mobileCode" maxlength="6" minlength="6" value="请输入验证码">
+                <a href="javascript:void(0)" class="code_btn on getmsg">发送验证码</a> <!--此标签默认为灰色状态，加class=on为红色可点击状态-->
+                <a href="javascript:void(0)" class="code_btn time" style="display:none">120秒后重发</a>
+            </div>
+            <div class="input_text h44">
+            	<span class="textLable">登录密码</span>
+                <input id="inputPassword" style="color:#2F2F2F;line-height:normal;" type="password" class="t1 h24 loginPass" maxlength="20" minlength="6" placeholder="登录密码由6-20位英文、数字组成">
+            </div>
+           	<div class="h44" style="font-size:15px;"><a class="icon_check checked" style="text-align:left;" id="icon_Check">已阅读并接受</a><a href='javascript:void(0)' class='protocol'>《投客网用户协议》</a></div>
+        
+        </div>
+        
+         <div class="cert_notice" style="display:none">
+        	
+    	</div>
+    </section>
+    <script>
+    	$(function(){
+    		if($(".mobileCode").val()!="请输入验证码"){
+   				$(".mobileCode").css({color:"#E3E3E3"});
+   			}
+    		$(".mobileCode").on("click",function(){
+    			if($(this).val()=="请输入验证码"){
+    				$(this).css({color:"#2F2F2F"}).val("");
+    			}
+    		});
+    		$(".mobileCode").on("blur",function(){
+    			if($(this).val()==""){
+    				$(this).val("请输入验证码").css({color:"#E3E3E3"});
+    			}
+    		});
+    	})
+    </script>
+    <div class="fix_bot">
+		<div class="ct_btn">
+        	<a id="nextButton" href="javascript:void(0)">下一步</a>
+        </div>
+        <div class="top_title">
+        	<p style="padding-left:30px;padding-right:30px;">投客网隶属于华宝证券的投资理财平台，注册后可登录投客网进行投资理财，如有疑问可拨打华宝证券客服热线4008209898</p>
+    	</div>
+    </div>
+</div>

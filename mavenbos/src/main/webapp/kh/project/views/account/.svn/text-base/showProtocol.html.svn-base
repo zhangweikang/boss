@@ -1,0 +1,33 @@
+<div class="page" id="account_showProtocol" data-pageTitle="查看协议">
+	<header class="header">
+    	<a href="javascript:void(0)" class="icon_back"></a>
+    	<h3>查看协议</h3>
+    </header>
+	<section class="main">
+      <div class="step_box top_step">
+            <ul class="step_li_sub clearfix">
+            	<li class="old_on"><span>1.实名验证</span></li>
+            	<li class="on"><span>2.开立账户</span></li>
+                <li><span>3.开户确认</span></li>
+            </ul>
+        </div>
+        <div class="protocol_scroll" style="overflow:auto;">
+	        <div class="top_title">
+	        	<p>请填写开户信息</p>
+	        </div>
+	        <div class="user_form">
+	            <p id="contenttxt"></p>
+	        </div>
+        </div>
+        <script>
+        	$(function(){
+        		$(".protocol_scroll").height($(window).height()-45-44-54);
+        	})
+        </script>
+    </section>
+    <div class="fix_bot">
+		<div class="ct_btn">
+        	<a href="javascript:void(0)">继续开户></a>
+        </div>
+    </div>
+</div>

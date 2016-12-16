@@ -1,0 +1,98 @@
+<div class="page" id="account_personInfo" data-pageTitle="身份验证-个人信息" >
+    <header class="header">
+    	<a href="javascript:void(0)" class="icon_back"></a>
+    	<h3>个人信息</h3>
+    	<a href="javascript:void(0)" class="icon_question"></a>
+    </header>
+	<section class="main">
+		<div class="over_scroll">
+        <div class="step_box top_step">
+            <ul class="step_li_sub clearfix">
+            	<li class="on"><span>1.实名验证</span></li>
+            	<li><span>2.开立账户</span></li>
+                <li><span>3.开户确认</span></li>
+            </ul>
+        </div>
+       <div class="top_title02">
+        	<p>请填写以下个人信息</p>
+        </div>
+        <div class="user_form">
+        	<div class="input_form circular mb0">
+            	<div class="input_text mb0">
+                	<span class="tit">姓&#160;&#160;&#160;&#160;&#160;&#160;名</span>
+                	<input type="text" class="t1 name" value="">
+                </div>
+                <div class="input_text mb0">
+                	<span class="tit">身份证号</span>
+                	<input type="text" class="t1 idCardNo" value="" maxlength="18">
+                </div>
+                <div class="input_text mb0">
+                	<span class="tit">签发机关</span>
+                	<input type="text" class="t1 signDepartment" value="">
+                </div>
+            	<div class="input_text mb0">
+                	<span class="tit">证件地址</span>
+                	<input  class="t1 idCardAddress t10"></input>
+                </div>
+            	<div class="input_text mb0">
+                	<span class="tit icon_star">通讯地址</span>
+                	<input type="text" class="t1 address t10" id="t_address" placeholder="用于寄送资料，请如实填写！" />
+                </div>
+                <div class="input_text mb0" style="display:none">
+                	<span class="tit">起始期限</span>
+                	<input type="text" class="t1 idBeginDate" id="idBeginDate" date-plugin="true" readonly="readonly" />
+                </div>
+                <div class="input_text mb0" style="display:none">
+                	<span class="tit">结束期限</span>
+                	<input type="text" class="t1 idEndDate" id="idEndDate" date-plugin="true" readonly="readonly" />
+                </div>
+                <div class="input_text mb0">
+                	<span class="tit">邮&#160;&#160;&#160;&#160;&#160;&#160;编</span>
+                	<input type="tel" class="t1 zipCode" value="" maxlength="6">
+                </div>
+            </div>
+            <div class="input_form circular mb0">
+            	<div class="input_text10 mb0" style="border-top:none;">
+                	<span class="tit">职&#160;&#160;&#160;&#160;&#160;&#160;业</span><strong class="sel_text selectOccupation" style="color:#E3E3E3;">请选择职业</strong>
+                </div>
+                <div class="input_text mb0">
+                	<span class="tit">学&#160;&#160;&#160;&#160;&#160;&#160;历</span><strong class="sel_text selectDegree" style="color:#E3E3E3;">请选择学历</strong>
+                </div>
+            </div>
+            <div class="input_form circular mt10 mb0" style="display:none">
+            	<div class="input_text">
+                	<span>推&#160;&#160;荐&#160;&#160;人</span><input type="text" class="t1 reference" placeholder="(选填）">
+                </div>
+            </div>
+        </div>
+        <div class="fix_bot mt10">
+			<div class="ct_btn">
+	        	<a href="javascript:void(0)">下一步 ></a>
+	        </div>
+	    </div>
+	    </div>
+    </section>
+    
+    <div class="sel_list job" style="display:none">
+    	<div class="sel_info">
+	    	<a href="javascript:void(0)" style="display:none">确定</a>
+	    	<strong>请选择职业：</strong>
+	    </div>
+		<ul></ul>
+	</div>
+	<div class="sel_list education" style="display:none">
+		<div class="sel_info">
+	    	<a href="javascript:void(0)" style="display:none">确定</a>
+	    	<strong>请选择学历：</strong>
+	    </div>
+		<ul></ul>
+	</div>
+	<script>
+		$(function(){
+			$(".selectOccupation,.selectDegree").one("click",function(){
+				$(this).css({color:"#2F2F2F"});
+			})
+		})
+	</script>
+	
+</div>

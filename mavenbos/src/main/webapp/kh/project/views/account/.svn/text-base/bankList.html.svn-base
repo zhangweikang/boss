@@ -1,0 +1,10 @@
+<div class="page" id="account_bankList" data-pageTitle="选择银行">
+    <section class="main">
+    <link rel="stylesheet" href="https://static.touker.com/hbec/projects/sjkh/v132/v132.min.css"/>
+        <div class="sjkh banks">
+            <p class="top-info"><span class="i-back"></span>选择银行</p>
+            <div class="bank-list">
+            </div>
+        </div>
+    </section>
+</div>

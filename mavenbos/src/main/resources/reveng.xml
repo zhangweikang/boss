@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering 
+	PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<!-- math-schema 匹配用户 、 match-table 匹配表名 （支持正则表达式 .* 任意字符串 ） -->
+	<schema-selection match-table="T_USER" match-schema="ceshi"/>
+	<schema-selection match-table="BC_.*" match-schema="ceshi"/>
+	<schema-selection match-table="QP_.*" match-schema="ceshi"/>
+	<schema-selection match-table="AUTH_.*" match-schema="ceshi"/>
+	<schema-selection match-table="ROLE_FUNCTION" match-schema="ceshi"/>
+	<schema-selection match-table="USER_ROLE" match-schema="ceshi"/>
+<!-- 	<table-filter match-name="QP_.*" match-schema="ceshi"/> -->
+	
+	<!-- 将 BC_DECIDEDZONE表 生成 bc包 DecidedZone 类，主键策略 uuid -->
+	<table name="BC_DECIDEDZONE" schema="ceshi"
+		class="cn.itcast.bos.domain.bc.DecidedZone">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="BC_REGION" schema="ceshi"
+		class="cn.itcast.bos.domain.bc.Region">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="BC_STAFF" schema="ceshi"
+		class="cn.itcast.bos.domain.bc.Staff">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="BC_SUBAREA" schema="ceshi"
+		class="cn.itcast.bos.domain.bc.Subarea">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="T_USER" schema="ceshi"
+		class="cn.itcast.bos.domain.user.User">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="QP_NOTICEBILL" schema="ceshi"
+		class="cn.itcast.bos.domain.qp.NoticeBill">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="QP_WORKBILL" schema="ceshi"
+		class="cn.itcast.bos.domain.qp.WorkBill">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="QP_WORKORDERMANAGE" schema="ceshi"
+		class="cn.itcast.bos.domain.qp.WorkOrderManage">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="AUTH_FUNCTION" schema="ceshi"
+		class="cn.itcast.bos.domain.auth.Function">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+	<table name="AUTH_ROLE" schema="ceshi"
+		class="cn.itcast.bos.domain.auth.Role">
+		<primary-key>
+			<generator class="uuid"></generator>
+		</primary-key>
+	</table>
+</hibernate-reverse-engineering>

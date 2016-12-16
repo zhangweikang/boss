@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/data/jpa
+ 	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+ 	http://cxf.apache.org/jaxws
+ 	http://cxf.apache.org/schemas/jaxws.xsd
+ 	http://www.springframework.org/schema/cache 
+	http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<!-- 引入外部属性文件 -->
+	<context:property-placeholder location="classpath:db.properties" />
+
+	<!-- 连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+
+	<!-- 实体管理工厂 -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<!-- 数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 扫描实体类 -->
+		<property name="packagesToScan" value="cn.itcast.bos.domain" />
+		<!-- 数据库和方言 -->
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<!-- 配置数据库类型 -->
+				<property name="database" value="MYSQL" />
+				<!-- 是否生成DDL 建表 -->
+				<property name="generateDdl" value="true" />
+				<!-- 配置dialect 方言 -->
+				<property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect" />
+				<!-- 控制台打印sql -->
+				<property name="showSql" value="true" />
+			</bean>
+		</property>
+		<!-- jpaPropertyMap 配置hibernate其它属性 -->
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.search.default.indexBase">d:/index</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<!-- 注解进行事务管理 -->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+	<!-- service 需要spring 扫描 -->
+	<context:component-scan base-package="cn.itcast.bos.service,cn.itcast.bos.web" />
+ 
+	<!-- dao 需要被spring data 管理 -->
+	<!-- 自动扫描所有继承Repository的接口 -->
+	<jpa:repositories base-package="cn.itcast.bos.dao" />
+
+	<!-- CXF 客户端 -->
+	<!-- Import Apache CXF Bean Definition -->
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<jaxws:client id="customerService" serviceClass="cn.itcast.crm.service.CustomerService"
+		address="http://localhost:9999/mavencrm/customerService" />
+
+	<!-- shiro 权限控制 -->
+	<bean id="shiroSecurityFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- shiro 的核心安全接口 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 要求登录时的链接 -->
+		<property name="loginUrl" value="/login.jsp" />
+		<!-- 登陆成功后要跳转的连接 -->
+		<property name="successUrl" value="/index.jsp" />
+		<!-- 权限不足，跳转路径  -->
+		<property name="unauthorizedUrl" value="/unauthorized.jsp" />
+		<!-- shiro 连接约束配置 -->
+		<!-- URL控制规则  路径=规则 -->
+		<property name="filterChainDefinitions">
+			<value>
+				/login.jsp = anon
+				/validatecode.jsp = anon
+				/css/** = anon
+				/js/** = anon
+				/images/** = anon
+				/user_login.action = anon
+			</value>
+		</property>
+	</bean>
+	
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- 在安全管理器，应该注入 Realm 连接安全数据  -->
+		<property name="realm" ref="bosRealm" />
+		<!-- 注入缓存管理器 -->
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+	
+	<bean id="bosRealm" class="cn.itcast.bos.realm.BOSRealm" >
+		<property name="authorizationCacheName" value="boscache" />
+	</bean>
+	
+	<!--开启注解的权限控制  -->
+	<!-- spring bean 对象后处理器  -->
+	<bean id="lifecycleBeanPostProcessor"
+		class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	
+	<!-- 切面自动代理 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor" >
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	
+	<!-- 切面 -->
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		 <property name="securityManager" ref="securityManager"/>
+	</bean>	
+
+	<!-- ehcache 缓存管理器 -->
+	<bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:ehcache.xml" />
+	</bean>
+	<!-- shiro 缓存管理器 -->
+	<bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManager" ref="ehcacheManager" />
+	</bean>
+	<!-- spring缓存配置 -->
+	<bean id="springCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcacheManager" />
+	</bean>
+	<cache:annotation-driven cache-manager="springCacheManager"/>
+	
+	<!-- activiti -->
+	<bean id="processEngineConfiguration" 
+		class="org.activiti.spring.SpringProcessEngineConfiguration">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 自动建表 -->
+		<property name="databaseSchemaUpdate" value="true" />
+		<!-- 事务管理器 -->
+		<property name="transactionManager" ref="transactionManager" />
+		<!-- 整理JPA -->
+		<property name="jpaEntityManagerFactory" ref="entityManagerFactory" />
+		<property name="jpaHandleTransaction" value="true" />
+		<property name="jpaCloseEntityManager" value="true" />
+		<!-- 生成图片字体 -->
+		<property name="activityFontName" value="宋体" />
+		<property name="labelFontName" value="宋体" />
+	</bean>
+	<!-- 流程引擎 -->
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+		<property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+	<!-- Service -->	
+	<bean id="repositoryService" 
+		factory-bean="processEngine" 
+		factory-method="getRepositoryService"></bean>
+	<bean id="runtimeService" 
+		factory-bean="processEngine" 
+		factory-method="getRuntimeService"></bean>	
+	<bean id="taskService" 
+		factory-bean="processEngine" 
+		factory-method="getTaskService"></bean>	
+	<bean id="identityService" 
+		factory-bean="processEngine" 
+		factory-method="getIdentityService"></bean>		
+</beans>

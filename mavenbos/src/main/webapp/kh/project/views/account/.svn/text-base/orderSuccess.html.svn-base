@@ -1,0 +1,29 @@
+<div class="page" id="account_orderSuccess" data-pageTitle="预约QQ视频认证">
+	<header class="header">
+    	<h3>预约QQ视频认证</h3>
+    </header>
+	<section class="main">
+        <div class="step_box top_step">
+            <ul class="step_li clearfix">
+            	<li class="active"><span>实名验证</span><em></em></li>
+            	<li><span>开立账户</span><em></em></li>
+                <li><span>开户确认</span><em></em></li>
+            </ul>
+        </div>
+        <div class="qq_order">
+            <h5>预约成功！</h5>
+            <p>我们的工作人员会在<span></span><br>与您
+            <span></span>的QQ号联系进行视频见证<br>请保持此QQ号在线</p>
+    	</div>
+    	<div>
+    		<div class="go_order">
+        		<a href="javascript:void(0)">继续排队</a>
+        	</div>
+    	</div>
+    </section>
+    <div class="fix_bot">
+		<div class="ct_btn">
+        	<a href="javascript:void(0)">继续开户 ></a>
+        </div>
+    </div>
+</div>

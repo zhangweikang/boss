@@ -1,0 +1,34 @@
+<div class="page" id="account_digitalCertificate" data-pageTitle="安装证书">
+	<header class="header">
+    	<h3>数字证书安装</h3>
+    </header>
+	<section class="main">
+        <div class="step_box top_step">
+            <ul class="step_li_sub clearfix">
+            	<li class="on" ><span>1.实名验证</span><em></em></li>
+            	<li><span>2.开立账户</span><em></em></li>
+                <li><span>3.开户确认</span><em></em></li>
+            </ul>
+        </div>
+        <div class="order_succes">
+            <h5>正在安装证书,请勿退出应用</h5>
+           	<div style="margin: auto;width: 235px;height: 235px;margin-top: 40px;margin-bottom: 40px;"><img src="project/images/u23_normal.gif"></div>
+        </div>
+        <div class="cert_down" style="display: none;">
+        	<span class="cert_stat"></span>
+        	<p><a href="javascript:void(0)">安装出现问题? </a></p>
+        </div>
+    </section>
+    <div class="fix_bot">
+		<div id="next_btn" class="ce_btn">
+        	<a href="javascript:void(0)">请稍后...</a>
+        </div>	
+    </div>
+    <div class="qa_list" style="display: none;">
+		<h5>安装出现问题？</h5>
+	    <ul>
+	    	<li><a href="javascript:void(0)">拨打客服热线 4008209898</a></li>
+	    	<li><a href="javascript:void(0)">添加微信公共号"华宝证券"咨询</a></li>
+		</ul>
+	</div>
+</div>
